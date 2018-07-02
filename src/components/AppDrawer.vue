@@ -8,8 +8,8 @@
     v-model="drawer"
     width="260"
     >
-    <v-toolbar color="primary darken-1" dark>
-      <img v-bind:src="computeLogo" height="36" alt="Vue Material Admin Template">
+    <v-toolbar color="white darken-1" dark>
+      <img v-bind:src="computeLogo" height="36" alt="NAA Significance Engine">
       <v-toolbar-title class="ml-1">
         <span class="hidden-sm-and-down appName">Significance Engine</span>
       </v-toolbar-title>        
@@ -138,6 +138,7 @@ export default {
 
 .appName {
   font-size: 15px;
+  color: black;
 }
 
 </style>
