@@ -75,6 +75,21 @@ export default [
       `@/pages/Dashboard.vue`
     )
   },
+  {
+    path: '/nlu',
+    name: 'NLU',
+    component: () => import(
+      `@/components/nlu/Layout.vue`
+    )
+  },
+
+  {
+    path: '/records',
+    name: 'records',
+    component: () => import(
+      `@/components/naa/List.vue`
+    )
+  },
 
   // {
   //   path: '/calendar',

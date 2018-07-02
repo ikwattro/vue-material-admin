@@ -9,6 +9,7 @@ import './theme/default.styl';
 import VeeValidate from 'vee-validate';
 import colors from 'vuetify/es5/util/colors';
 import Truncate from 'lodash.truncate';
+import axios from 'axios';
 Vue.config.productionTip = false;
 // Helpers
 // Global filters
@@ -36,7 +37,7 @@ Vue.use(Vuetify, {
 });
 // Bootstrap application components
 
-
+Vue.prototype.$http = axios;
 
 /* eslint-disable no-new */
 new Vue({

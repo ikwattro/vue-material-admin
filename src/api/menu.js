@@ -7,6 +7,18 @@ const Menu =  [
     name: 'Dashboard',
   },
   {
+    title: 'NLU',
+    group: 'apps',
+    icon: 'chat_bubble',
+    name: 'NLU'
+  },
+  {
+    title: 'Records',
+    group: 'app',
+    icon: 'dashboard',
+    name: 'records'
+  },
+  {
     title: 'Chat',
     group: 'apps',
     icon: 'chat_bubble',
