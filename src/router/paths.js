@@ -62,19 +62,19 @@ export default [
     meta: { },
     name: 'Root',
     redirect: {
-      name: 'Dashboard'
+      name: 'records'
     }
   },
-  {
-    path: '/dashboard',
-    meta: { breadcrumb: true },
-    name: 'Dashboard',
-    component: () => import(
-      /* webpackChunkName: "routes" */
-      /* webpackMode: "lazy-once" */
-      `@/pages/Dashboard.vue`
-    )
-  },
+  // {
+  //   path: '/dashboard',
+  //   meta: { breadcrumb: true },
+  //   name: 'Dashboard',
+  //   component: () => import(
+  //     /* webpackChunkName: "routes" */
+  //     /* webpackMode: "lazy-once" */
+  //     `@/pages/Dashboard.vue`
+  //   )
+  // },
   {
     path: '/nlu',
     name: 'NLU',
