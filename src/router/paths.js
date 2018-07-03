@@ -92,6 +92,14 @@ export default [
       `@/components/naa/List.vue`
     )
   },
+  {
+    path: '/records/:id',
+    name: 'recordsView',
+    meta: { breadcrumb: false },
+    component: () => import(
+      `@/components/naa/View.vue`
+    )
+  },
 
   // {
   //   path: '/calendar',

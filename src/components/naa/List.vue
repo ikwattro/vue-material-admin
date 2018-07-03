@@ -11,7 +11,7 @@
                   </v-list-tile-avatar>
                   <v-list-tile-content>
                     <v-list-tile-title>{{ item.props.url }}</v-list-tile-title>
-                    <v-list-tile-sub-title>some subtitle</v-list-tile-sub-title>
+                    <v-list-tile-sub-title>Uploaded {{ item.props.publishedDate }}</v-list-tile-sub-title>
                   </v-list-tile-content>
                   <v-list-tile-action>
                     <v-btn icon ripple>
@@ -79,6 +79,7 @@ export default {
     },
     handleClick: function (e) {
       console.log(e)
+      this.$router.push({name: 'recordsView', params: {id: e.id}})
     }
   },  
 };
