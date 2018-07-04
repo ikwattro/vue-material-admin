@@ -127,6 +127,7 @@ export default {
     const docId = this.$route.params.id
     const URL = process.env.API_URL + '/api/naa/record/' + docId
     const vm = this
+    vm.infos['directories'] = []
     this.$http.get(URL)
       .then(function (response) {
         console.log(response)
@@ -150,6 +151,7 @@ export default {
         })
 
         vm.infos.directories = response.data.directories
+        console.log(vm.infos)
         vm.infos.directories.viaOrgs.forEach(i => {
           i.icon = 'blur_on'
           i.byNorm = i.by.join(', ')

@@ -3,6 +3,9 @@
   <v-container grid-list-xl fluid>
     <v-widget title="Record Authority documents" class="mt-3">
             <div slot="widget-content">
+              <v-btn color="red" dark fab small @click="redirect">
+                  <v-icon dark>add</v-icon>
+                </v-btn>
               <v-list two-line subheader>
                 <v-subheader inset>Files</v-subheader>
                 <v-list-tile avatar v-for="item in records" :key="item.id" @click="handleClick(item)">
@@ -10,7 +13,7 @@
                     <v-icon :class="[item.iconClass]">{{ item.icon }}</v-icon>
                   </v-list-tile-avatar>
                   <v-list-tile-content>
-                    <v-list-tile-title>{{ item.props.url }}</v-list-tile-title>
+                    <v-list-tile-title>{{ item.props.title }}</v-list-tile-title>
                     <v-list-tile-sub-title>Uploaded {{ item.props.publishedDate }}</v-list-tile-sub-title>
                   </v-list-tile-content>
                   <v-list-tile-action>
@@ -80,6 +83,9 @@ export default {
     handleClick: function (e) {
       console.log(e)
       this.$router.push({name: 'recordsView', params: {id: e.id}})
+    },
+    redirect: function () {
+      this.$router.push({name: 'NLU'})
     }
   },  
 };

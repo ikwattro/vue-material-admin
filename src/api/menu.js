@@ -8,14 +8,14 @@ const Menu =  [
   // },
   {
     title: 'Records',
-    group: 'app',
-    icon: 'dashboard',
+    group: 'apps',
+    icon: 'list',
     name: 'records'
   },
   {
-    title: 'NLU',
+    title: 'New Record',
     group: 'apps',
-    icon: 'chat_bubble',
+    icon: 'create_new_folder',
     name: 'NLU'
   },
   // {

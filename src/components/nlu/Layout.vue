@@ -5,9 +5,15 @@
         <div slot="widget-content">
           <v-layout row wrap>
         <v-flex lg8 xs12>
-          <v-layout row>
-                  <v-flex xs4>
-                    <v-subheader>Analyse an article or other content </v-subheader>
+          <div class="layout ma-0 row">
+            <v-flex xs3>
+              <!-- <v-subheader>Title</v-subheader> -->
+              </v-flex>
+                  <v-flex xs8><v-text-field v-model="nlu_title" name="nlu_title" color="teal" label="Insert the title here ..."></v-text-field></v-flex>
+          </div>
+         <div class="layout ma-0 row">
+           <v-flex xs3>
+                    <!-- <v-subheader>Analyse an article or other content </v-subheader> -->
                   </v-flex>
                   <v-flex xs8>
                     <v-text-field v-model="nlu_text"
@@ -17,14 +23,13 @@
                       color="teal"
                       multi-line
                       rows="10"
-                      v-class="hello"
                     ></v-text-field>
                   </v-flex>
-          </v-layout>
+         </div>
           <v-layout row wrap="">
-            <v-flex xs12>
+            <v-flex xs11>
                     <div class="text-xs-right">
-                      <v-btn color="info" round @click="analyze()">ANALYZE</v-btn>
+                      <v-btn color="info" round @click="analyze">ANALYZE</v-btn>
                     </div>
             </v-flex>
           </v-layout>
@@ -87,26 +92,24 @@ export default {
   },
   data: () => ({
     nlu_text: "",
+    nlu_title: "",
     loading: false,
     result_ok: false,
-    keywords: [{value: 'Officer Dana Deasy', pct: 0.81}, {value: 'Secretary Patrick Shanahan', pct: 0.73}, {value: 'Joint Artificial Intelligence Center', pct: 0.72}],
     tab: null
   }),
-  computed: {
-  },
-
-  created () {
-  },
 
   methods: {
     analyze: function (e) {
-      console.log(this.nlu_text)
-      this.loading = true
-      const vm = this
-      setTimeout(() => {
-        vm.loading = false
-        vm.displayContent()
-      }, 2000)
+      const d = {title: this.nlu_title, text: this.nlu_text}
+      const url = process.env.API_URL + '/api/naa/records/new'
+      console.log(d)
+      let vm = this
+      this.$http.post(url, d)
+        .then(function (response) {
+          console.log(response.data)
+          let did = response.data.id
+          vm.$router.push({name: 'recordsView', params: {id: did}})
+        })
     },
     displayContent: function () {
       this.result_ok = true
